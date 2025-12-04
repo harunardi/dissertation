@@ -19,6 +19,10 @@
 *.nav
 *.snm
 *.vrb
+*.bbl-SAVE-ERROR
+*bcf-SAVE-ERROR
+*.glsdefs
+*.synctex(busy)
 
 # Beamer temporary files
 *.nav
