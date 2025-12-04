@@ -1,0 +1,174 @@
+% For copyright and license information, see uiucthesis2021.dtx and derivatives.
+\documentclass{uiucthesis2021}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{microtype}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[bookmarksdepth=3,linktoc=all,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage[capitalize]{cleveref}
+\usepackage[style=ieee, dashed=false, backend=biber]{biblatex}
+%\usepackage[style=authoryear, dashed=false, giveninits=true]{biblatex}
+%\DefineBibliographyStrings{english}{
+%  andothers = {\emph{, et al.}},
+%}
+%\renewcommand{\cite}{\parencite}
+
+% Added packages
+\usepackage{graphicx}
+\usepackage{relsize}
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{listings}
+% \usepackage{caption}
+\usepackage[justification=centering]{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage[acronym,toc]{glossaries}
+\usepackage{float}
+\usepackage[table]{xcolor} % for colors in tables
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{soul}
+\sethlcolor{yellow}
+\usepackage{xcolor}
+
+% \usepackage{ruledchapters}  % example of compliant heading format, uncomment to use
+
+\usepackage{lipsum}  % just for placeholder code
+
+% uncomment the below to show a grid on all pages
+% \usepackage[grid, gridunit=in, gridcolor=blue!40, subgridcolor=blue!20]{eso-pic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{./references.bib}
+
+\newcounter{counterforappendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{A Reactor Physics Framework to Detect Anomalies in HTGR Core}
+\author{Harun Ardiansyah}
+\department{Nuclear, Plasma, and Radiological Engineering}
+%\concentration{Coffee Studies}
+\phdthesis
+\degreeyear{2025}
+\committee{
+    Professor Tomasz Kozlowski, Chair and Director of Research\\
+    Associate Professor Angela Di Fulvio\\
+    Assistant Professor Syed Bahauddin Alam\\
+    Associate Professor Eduard-Wilhelm Kirr\\
+    Professor Christophe Demazière}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+\include{acronyms}
+
+\begin{abstract}
+
+This dissertation extends the application of neutron noise analysis as a tool for detecting anomalies in High Temperature Gas-cooled Reactors (HTGRs). Neutron noise is defined as the fluctuations in the neutron detector signal caused by perturbations in a nuclear reactor. Neutron noise analysis is performed by obtaining the neutron flux signals in the time domain, which is then converted to the frequency domain to perform spectral analysis of the neutron noise. This analysis is possible only for steady-state conditions. Neutron noise analysis has been used in the past in LWRs and has proven effective in several applications. This includes the application for core monitoring and surveillance, model validation, and core diagnostics for anomaly detection.
+
+Considering the effectiveness of the analysis, computational methods and models of neutron noise were developed from the neutron transport equation. The neutron noise models can be divided into two categories, namely the absorber of variable strength (AVS) and the vibrating absorber. The AVS is modeled as fluctuations in the macroscopic cross-section at a fixed location $\textbf{r}_0$. This includes the cases of perturbations traveling with the coolant flow in molten salt reactors (MSRs) and perturbations due to unseated fuel assemblies in boiling water reactors (BWRs). The vibrating absorber is modeled as a displacement of the assembly from its nominal position, with the assumption that neutron noise is induced by the vibrating interface. Several tools have been developed to solve neutron noise equations, using both Monte Carlo and deterministic methods.
+
+This dissertation is divided into two contributions. First, we determined if neutron noise analysis and current neutron noise unfolding methods are applicable to prismatic-type HTGRs. To make such determination, a neutron noise equation solver was developed for both hexagonal and rectangular geometries. The developed solver solves the multigroup neutron diffusion equation in the frequency domain, using a finite volume method for spatial discretization. The solver has been verified using several benchmarks. Then, we simulated neutron noise in a prismatic-type HTGR core to obtain its neutron noise characteristics, including the point-kinetic and spatial components of neutron noise, as well as the zero-power reactor transfer functions. The results show that, generally, the neutron noise in HTGRs exhibits a similar behavior to that in LWRs. However, there are a few aspects that distinguish HTGRs. From the zero-power reactor transfer function, HTGRs have a lower plateau, which means that HTGRs are more sensitive to perturbations within a certain range of frequencies. Neutron noise in HTGRs is largely dominated by the point-kinetic component of neutron noise, which means that the neutron noise is largely driven by the reactivity effect of the perturbation.
+
+The second contribution is to introduce two new methods to unfold neutron noise. The challenge of neutron noise unfolding is that the neutron noise is not known (measured) at all positions and energy, it is only known at the detector positions. There are three primary methods for neutron noise unfolding: the inversion method, the zoning method, and the scanning method. These methods were applied to unfold the neutron noise source in the 2D HTTR core. The results show that the inversion method lacks accuracy due to the use of linear interpolation. The scanning method shows satisfactory results but is limited to only one AVS-type source. The zoning method incorrectly identifies the location and magnitude of the neutron noise source. This dissertation developed two novel methods for neutron noise unfolding that use Green’s function, namely the brute force method and the greedy method. The brute force method solves the combinations of Green’s function and its coefficient until it finds the correct combination of Green’s functions. The greedy method iterates Green’s function to find the Green’s function matrix and the local minimum of the residual. This results in several valid solutions to the noise sources. The correct solution is the solution that requires the least number of Green’s function combinations to minimize the residual. The results show that both brute force and greedy methods can simultaneously unfold multiple AVS-type noise sources, which is not possible by the currently used methods (inversion, zoning, scanning methods).
+
+\end{abstract}
+
+\begin{dedication}
+To Nafi, Ali, and my family in Indonesia. 
+
+\end{dedication}
+
+\begin{acknowledgments}
+
+All praise is due to Allah, the Almighty God, for guiding me throughout this research endeavor and granting me success along the way. This dissertation is the culmination of many prayers. Most importantly, from my family back home in Indonesia. I thank my parents, Mohammad Sholeh and Latifah, for believing in me and giving me the confidence to move out of our hometown to pursue my studies since I was in high school. I also want to thank my brother, Muhamad Subhan, for allowing me to pursue my studies and for always being home during my absences. I want to thank my wife, Annafiatur Regatra, for always being there for me, for being supportive of my research endeavor, and for having confidence in me throughout my study, for trusting me as a husband, father, and scholar. Finally, I would like to thank my son, Ali Zein Ardiansyah. It will be a while for you to be able to read this dissertation, but understand that your presence completes me. I will do everything in my power for you in the future.
+
+I would like to acknowledge and thank all my teachers, past and present, for helping me discover my passion for nuclear engineering. I would like to thank my PhD advisor, Prof. Tomasz Kozlowski, for his confidence in me to pursue the neutron noise method as the topic for my dissertation. I am grateful for all your encouragement that has helped push me forward in my studies. Prof. Kozlowski also provided me with numerous opportunities to grow as a scholar. From writing skills to teaching, mentoring, and being confident in a conference, thank you for your support during my PhD studies.
+
+I would like to thank all the professors who served in my committee. Profs. Angela Di Fulvio, Syed Bahauddin Alam, Eduard Wilhelm Kirr, and Christophe Demazière, not only for reviewing my dissertation, but also for giving me meaningful insights along the way. I would like to extend my special thanks to Prof. Christophe Demazière for his guidance thus far. I still remember my first meeting with Christophe in Gothenburg in December 2023, where we discussed my initial proposal for this dissertation. I did not know a lot about neutron noise back then, but his support and guidance helped me to formulate my objectives for this dissertation. Special thanks also to Prof. April Novak. Being Prof. Novak's teaching assistant for the last four semesters has helped me develop my communication skills with students and learn how to engage with them proactively.
+
+I would also like to thank NPRE family and staff for helping me along my studies. I would like to appreciate Kristie Stramaski for helping me with all the problems I encountered during my PhD. I would also like to thank Barbara Russell, Sarah Drum, Becky Meline, and Jenna Russell for assisting me during my study at NPRE. Special thanks to all the people at Talbot 223. Thank you, Dr. Roberto Fairhurst-Agosta, Dr. Alvin Lee, Runxia Wen, Yifan Mao, Silvana Tabares, and all the people whose interaction I really appreciate.
+
+\textit{And finally, I would like to thank YOU, the reader, for considering this out of many literatures out there. I hope this dissertation is professionally meaningful and contributes to everything that you are looking for.}
+
+\end{acknowledgments}
+
+{
+    \hypersetup{linkcolor=black}  % disable link coloring locally
+    \tableofcontents
+    % the Graduate College doesn't recommend including lot or lof
+    %\listoftables
+    %\listoffigures
+}
+
+%\chapter{List of Abbreviations}
+%
+%\begin{abbrevlist}
+%\item[CA] Caffeine Addict.
+%\item[CD] Coffee Drinker.
+%\end{abbrevlist}
+%
+%\chapter{List of Symbols}
+%
+%\begin{symbollist}[0.7in]
+%\item[$\tau$] Time taken to drink one cup of coffee.
+%\item[$\mu$g] Micrograms (of caffeine, generally).
+%\end{symbollist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+\chapter{Introduction}
+\input{ch1_introduction}
+
+\chapter{Literature Review}
+\input{ch2_literature_review}
+
+\chapter{Computational Tool for Neutron Noise Simulations}
+\input{ch3_simulations.tex}
+
+\chapter{Neutron Noise Simulation of High Temperature Test Reactor (HTTR)}
+\input{ch4_noise_HTTR.tex}
+
+\chapter{The Neutron Noise Sources Unfolding Methods}
+\input{ch5_unfolding_methods.tex}
+
+\chapter{Conclusions}
+\input{ch6_conclusions.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% per Graduate College preference, place the \appendix and the appendices content before the
+% bibliography (here) only if the appendices contain references.
+\backmatter
+
+\printbibliography[heading=bibintoc,title={References}]
+
+% the below lines are only needed if bibliography precedes appendices
+% uses https://tex.stackexchange.com/a/440212 to continue page numbering
+\clearpage
+\setcounter{counterforappendices}{\value{page}}
+\mainmatter
+\setcounter{page}{\value{counterforappendices}}
+
+\appendix
+
+\chapter{Additional Cases of Forward, Adjoint, and Neutron Noise Simulations}
+\input{appendixA.tex}
+
+\chapter{Backward Elimination Method for Neutron Noise Source Unfolding}
+\input{appendixB.tex}
+
+\chapter{Combinations for Greedy Method Scoping}
+\input{appendixC.tex}
+
+\end{document}

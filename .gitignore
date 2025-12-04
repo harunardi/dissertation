@@ -1,0 +1,58 @@
+# -------------------------
+# LaTeX build files
+# -------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.lof
+*.lot
+*.lol
+*.out
+*.toc
+*.toc.*
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Beamer temporary files
+*.nav
+*.snm
+*.vrb
+
+# Bibliography / BibLaTeX
+*.dvi
+*.bbl
+*.blg
+
+# Listings
+*.lol
+
+# Meta files
+*.log
+*.bak
+*.backup
+
+# Latexmk outputs
+latexmkrc
+*.pdfsync
+
+# Mac / OS Files
+.DS_Store
+._*
+
+# VSCode metadata
+.vscode/
+
+# Output PDFs (optional — if you don’t want to track generated PDFs)
+# Uncomment if you don’t want PDFs in repo
+# *.pdf
+
+# Generated figures if using matplotlib or scripts
+**/__pycache__/
+*.pyc
