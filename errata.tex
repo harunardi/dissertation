@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{longtable}   % for multi-page tables (optional)
+\usepackage{booktabs}    % better tables (optional)
+\usepackage{amsmath}   % already needed
+\usepackage{array}     % optional but useful
+
+% ---------- Spacing ----------
+\onehalfspacing
+
+% ---------- Document ----------
+\begin{document}
+
+% ---------- Title ----------
+\begin{center}
+    {\Large \textbf{Errata}}\\[1em]
+    {\large A Reactor Physics Framework to Detect Anomalies in HTGR Core}\\[1em]
+    Harun Ardiansyah\\
+    University of Illinois Urbana-Champaign\\
+    December 2025
+\end{center}
+
+\vspace{2em}
+
+This document lists corrections to the dissertation entitled
+\textit{``A Reactor Physics Framework to Detect Anomalies in HTGR Core''}. The errors do not affect the main results or conclusions unless otherwise stated.
+
+\vspace{2em}
+
+\section*{Detailed Corrections}
+
+\begin{itemize}
+    \item Page 10, Equation (2.13): Replace the  following equation
+    \begin{equation*}
+        \begin{aligned}
+                \frac{1}{v_g} \frac{\partial \delta \phi_g (\textbf{r}, t)}{\partial t} - \nabla D_g(\textbf{r}) \nabla \delta \phi_g(\textbf{r}, t) + \biggl(\Sigma_{t,g,0}(\textbf{r}) \delta \phi_g(\textbf{r}, t) + \delta \Sigma_{t,g}(\textbf{r}, t) \phi_{g,0}(\textbf{r}) \biggr) = \\
+                \sum_{g' = 1}^{G} \biggl(\Sigma_{s0,g',g,0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, t) + \delta \Sigma_{s0,g',g}(\textbf{r}, t) \phi_{g',0}(\textbf{r}) \biggr)\\
+                \chi^p_g \frac{1-\beta_{\text{eff}}}{k_{\text{eff}}} \biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, t) + \chi_g \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, t) \phi_{g',0}(\textbf{r}) \biggr) + \lambda \delta C(\textbf{r}, t)
+        \end{aligned}
+    \end{equation*}
+    with the corrected version:
+\begin{equation*}
+        \begin{aligned}
+                \frac{1}{v_g} \frac{\partial \delta \phi_g (\textbf{r}, t)}{\partial t} - \nabla D_g(\textbf{r}) \nabla \delta \phi_g(\textbf{r}, t) + \biggl(\Sigma_{t,g,0}(\textbf{r}) \delta \phi_g(\textbf{r}, t) + \delta \Sigma_{t,g}(\textbf{r}, t) \phi_{g,0}(\textbf{r}) \biggr) = \\
+                \sum_{g' = 1}^{G} \biggl(\Sigma_{s0,g',g,0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, t) + \delta \Sigma_{s0,g',g}(\textbf{r}, t) \phi_{g',0}(\textbf{r}) \biggr)\\
+                \chi^p_g \frac{1-\beta_{\text{eff}}}{k_{\text{eff}}} \biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, t) + \chi_g \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, t) \phi_{g',0}(\textbf{r}) \biggr) + \chi^d_g \lambda \delta C(\textbf{r}, t)
+        \end{aligned}
+    \end{equation*}
+
+    \item Page 10, Equation (2.14): Replace the  following equation
+    \begin{equation*}
+        \frac{\partial \delta C(\textbf{r}, t)}{\partial t} = - \lambda \delta C(\textbf{r}, t) + \chi^d_g \frac{\beta_{\text{eff}}}{k_{\text{eff}}}\biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, t) + \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, t) \phi_{g',0}(\textbf{r}) \biggr)
+    \end{equation*}
+    with the corrected version:
+\begin{equation*}
+        \frac{\partial \delta C(\textbf{r}, t)}{\partial t} = - \lambda \delta C(\textbf{r}, t) + \frac{\beta_{\text{eff}}}{k_{\text{eff}}}\biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, t) + \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, t) \phi_{g',0}(\textbf{r}) \biggr)
+\end{equation*}
+
+    \item Page 11, Equation (2.15): Replace the  following equation
+\begin{equation*}
+        \begin{aligned}
+                \frac{i \omega}{v_g} \delta \phi_g (\textbf{r}, \omega) - \nabla D_g(\textbf{r}) \nabla \delta \phi_g(\textbf{r}, \omega) + \biggl(\Sigma_{t,g,0}(\textbf{r}) \delta \phi_g(\textbf{r}, \omega) + \delta \Sigma_{t,g}(\textbf{r}, \omega) \phi_{g,0}(\textbf{r}) \biggr) = \\
+                \sum_{g' = 1}^{G} \biggl(\Sigma_{s0,g',g,0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, \omega) + \delta \Sigma_{s0,g',g}(\textbf{r}, \omega) \phi_{g',0}(\textbf{r}) \biggr)\\
+                \chi^p_g \frac{1-\beta_{\text{eff}}}{k_{\text{eff}}} \biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, \omega) + \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, \omega) \phi_{g',0}(\textbf{r}) \biggr) + \lambda \delta C(\textbf{r}, \omega)
+        \end{aligned}
+\end{equation*}
+    with the corrected version:
+\begin{equation*}
+        \begin{aligned}
+                \frac{i \omega}{v_g} \delta \phi_g (\textbf{r}, \omega) - \nabla D_g(\textbf{r}) \nabla \delta \phi_g(\textbf{r}, \omega) + \biggl(\Sigma_{t,g,0}(\textbf{r}) \delta \phi_g(\textbf{r}, \omega) + \delta \Sigma_{t,g}(\textbf{r}, \omega) \phi_{g,0}(\textbf{r}) \biggr) = \\
+                \sum_{g' = 1}^{G} \biggl(\Sigma_{s0,g',g,0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, \omega) + \delta \Sigma_{s0,g',g}(\textbf{r}, \omega) \phi_{g',0}(\textbf{r}) \biggr)\\
+                \chi^p_g \frac{1-\beta_{\text{eff}}}{k_{\text{eff}}} \biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, \omega) + \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, \omega) \phi_{g',0}(\textbf{r}) \biggr) + \chi^d_g \lambda \delta C(\textbf{r}, \omega)
+        \end{aligned}
+\end{equation*}
+
+    \item Page 11, Equation (2.16): Replace the  following equation
+\begin{equation*}
+        i \omega \delta C(\textbf{r}, \omega) = - \lambda \delta C(\textbf{r}, \omega) + \chi^d_g \frac{\beta_{\text{eff}}}{k_{\text{eff}}}\biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, \omega) + \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, \omega) \phi_{g',0}(\textbf{r}) \biggr)
+\end{equation*}
+    with the corrected version:
+\begin{equation*}
+        i \omega \delta C(\textbf{r}, \omega) = - \lambda \delta C(\textbf{r}, \omega) + \frac{\beta_{\text{eff}}}{k_{\text{eff}}}\biggl(\sum_{g' = 1}^{G} \nu \Sigma_{f,g',0}(\textbf{r}) \delta \phi_{g'}(\textbf{r}, \omega) + \sum_{g' = 1}^{G} \delta \nu \Sigma_{f,g'}(\textbf{r}, \omega) \phi_{g',0}(\textbf{r}) \biggr)
+\end{equation*}
+    
+%    \item Page 48, Figure 4.2 caption: Units should be mm instead of cm.
+\end{itemize}
+
+\vfill
+
+\end{document}
