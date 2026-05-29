@@ -1,5 +1,7 @@
 # uiucthesis class
 
+This repository is currently archived and read-only.
+
 ## Personal notes from Harun Ardiansyah
 This `uiucthesis2021` class is taken from [here](https://grad.illinois.edu/academics/thesis-dissertation/format-requirements). Several edits are made for personal preferences:
 - The table of content is in 3 levels (default is 1, chapters only)
